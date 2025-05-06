@@ -3,36 +3,18 @@ import React from "react";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { portfolioContent } from "@/config/portfolioContent";
 
 const Projects = () => {
-  const projects = [
-    {
-      title: "Retail Sales Forecasting",
-      description: "Built a time series forecasting model to predict retail sales for a Fortune 500 company, resulting in 12% inventory optimization.",
-      tags: ["Python", "Prophet", "Time Series", "Tableau"],
-      link: "#"
-    },
-    {
-      title: "Market Segmentation Analysis",
-      description: "Conducted customer segmentation analysis using clustering algorithms to identify key market segments for targeted marketing strategies.",
-      tags: ["R", "K-means", "Data Visualization"],
-      link: "#"
-    },
-    {
-      title: "Financial Performance Dashboard",
-      description: "Designed interactive financial KPI dashboard for executive team, providing real-time insights into business performance metrics.",
-      tags: ["Power BI", "SQL", "Financial Analysis"],
-      link: "#"
-    }
-  ];
+  const { title, items, viewProjectButtonText } = portfolioContent.projects;
 
   return (
     <section id="projects" className="section-container">
       <div className="max-w-5xl mx-auto">
-        <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center">Featured Projects</h2>
+        <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center">{title}</h2>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {projects.map((project, index) => (
+          {items.map((project, index) => (
             <Card key={index} className="project-card">
               <CardHeader>
                 <CardTitle>{project.title}</CardTitle>
@@ -51,7 +33,7 @@ const Projects = () => {
               </CardContent>
               <CardFooter>
                 <Button variant="outline" size="sm" className="w-full" asChild>
-                  <a href={project.link}>View Project</a>
+                  <a href={project.link}>{viewProjectButtonText}</a>
                 </Button>
               </CardFooter>
             </Card>

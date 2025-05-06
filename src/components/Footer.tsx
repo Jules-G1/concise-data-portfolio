@@ -1,8 +1,10 @@
 
 import React from "react";
 import { Github, Linkedin, Mail } from "lucide-react";
+import { portfolioContent } from "@/config/portfolioContent";
 
 const Footer = () => {
+  const { email } = portfolioContent;
   const currentYear = new Date().getFullYear();
   
   return (
@@ -11,7 +13,7 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-4 md:mb-0">
             <p className="text-sm text-muted-foreground">
-              &copy; {currentYear} Alex Morgan. All rights reserved.
+              {portfolioContent.footer.copyright(currentYear)}
             </p>
           </div>
           <div className="flex items-center space-x-4">
@@ -34,7 +36,7 @@ const Footer = () => {
               <Linkedin size={18} />
             </a>
             <a 
-              href="mailto:alex@example.com" 
+              href={`mailto:${email}`} 
               aria-label="Email"
               className="text-muted-foreground hover:text-foreground transition-colors"
             >
