@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { ExternalLink, Image, BarChart2, Database, Code } from "lucide-react";
+import { ExternalLink, Image, BarChart2 } from "lucide-react";
 
 interface ProjectModalProps {
   isOpen: boolean;
@@ -27,6 +27,9 @@ interface ProjectModalProps {
 }
 
 const ProjectModal = ({ isOpen, onClose, project }: ProjectModalProps) => {
+  // Déterminer s'il s'agit du premier projet (Retail Sales Forecasting)
+  const isFirstProject = project.title === "Retail Sales Forecasting";
+  
   return (
     <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
       <DialogContent className="max-w-3xl">
@@ -59,23 +62,28 @@ const ProjectModal = ({ isOpen, onClose, project }: ProjectModalProps) => {
             {project.fullDescription || project.description}
           </p>
           
-          {/* BI tool integration placeholder */}
-          <Card className="p-4 bg-muted/30 border border-dashed">
-            <div className="flex flex-col items-center justify-center py-8 text-muted-foreground">
-              <BarChart2 className="h-10 w-10 mb-2 opacity-50" />
-              <p className="text-center">Intégration d'outil BI</p>
-              <p className="text-xs text-center mt-1">Tableaux de bord, visualisations et analyse de données</p>
+          {/* BI tool integration - Looker Studio iframe for first project */}
+          {isFirstProject ? (
+            <div className="w-full overflow-hidden">
+              <iframe 
+                width="100%" 
+                height="443" 
+                src="https://lookerstudio.google.com/embed/reporting/cb440aa1-50ff-4f61-b603-7c23cd8333cc/page/HgUJF" 
+                frameBorder="0" 
+                style={{ border: 0 }} 
+                allowFullScreen 
+                sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"
+              ></iframe>
             </div>
-          </Card>
-          
-          {/* Database visualization placeholder */}
-          <Card className="p-4 bg-muted/30 border border-dashed">
-            <div className="flex flex-col items-center justify-center py-8 text-muted-foreground">
-              <Database className="h-10 w-10 mb-2 opacity-50" />
-              <p className="text-center">Structure de la base de données</p>
-              <p className="text-xs text-center mt-1">Modélisation et schémas</p>
-            </div>
-          </Card>
+          ) : (
+            <Card className="p-4 bg-muted/30 border border-dashed">
+              <div className="flex flex-col items-center justify-center py-8 text-muted-foreground">
+                <BarChart2 className="h-10 w-10 mb-2 opacity-50" />
+                <p className="text-center">Intégration d'outil BI</p>
+                <p className="text-xs text-center mt-1">Tableaux de bord, visualisations et analyse de données</p>
+              </div>
+            </Card>
+          )}
         </div>
         
         {/* Links section */}
