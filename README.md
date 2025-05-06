@@ -1,5 +1,7 @@
 # Welcome to your Lovable project
 
+This is a test project for school !
+
 ## Project info
 
 **URL**: https://lovable.dev/projects/d381b95e-fcb7-4652-b1ec-7bd9d046f4b8
