@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { ExternalLink, Image, BarChart2 } from "lucide-react";
+import { ExternalLink, Image, BarChart2, Code } from "lucide-react";
 
 interface ProjectModalProps {
   isOpen: boolean;
