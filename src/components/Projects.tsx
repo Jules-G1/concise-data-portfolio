@@ -1,12 +1,24 @@
 
-import React from "react";
+import React, { useState } from "react";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { portfolioContent } from "@/config/portfolioContent";
+import ProjectModal from "./ProjectModal";
 
 const Projects = () => {
   const { title, items, viewProjectButtonText } = portfolioContent.projects;
+  const [selectedProject, setSelectedProject] = useState<null | typeof items[0]>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  
+  const openProjectModal = (project: typeof items[0]) => {
+    setSelectedProject(project);
+    setIsModalOpen(true);
+  };
+  
+  const closeProjectModal = () => {
+    setIsModalOpen(false);
+  };
 
   return (
     <section id="projects" className="section-container">
@@ -32,14 +44,27 @@ const Projects = () => {
                 </p>
               </CardContent>
               <CardFooter>
-                <Button variant="outline" size="sm" className="w-full" asChild>
-                  <a href={project.link}>{viewProjectButtonText}</a>
+                <Button 
+                  variant="outline" 
+                  size="sm" 
+                  className="w-full"
+                  onClick={() => openProjectModal(project)}
+                >
+                  {viewProjectButtonText}
                 </Button>
               </CardFooter>
             </Card>
           ))}
         </div>
       </div>
+      
+      {selectedProject && (
+        <ProjectModal 
+          isOpen={isModalOpen} 
+          onClose={closeProjectModal} 
+          project={selectedProject} 
+        />
+      )}
     </section>
   );
 };

@@ -47,20 +47,30 @@ export const portfolioContent = {
       {
         title: "Retail Sales Forecasting",
         description: "Built a time series forecasting model to predict retail sales for a Fortune 500 company, resulting in 12% inventory optimization.",
+        fullDescription: "Developed and implemented a comprehensive time series forecasting model using Python and Facebook Prophet to predict retail sales patterns for a Fortune 500 retailer. The model incorporated seasonal trends, holiday effects, and external economic indicators to achieve high accuracy predictions. Implementation resulted in 12% inventory optimization, significantly reducing carrying costs while maintaining service levels.",
         tags: ["Python", "Prophet", "Time Series", "Tableau"],
-        link: "#"
+        link: "#",
+        githubLink: "https://github.com/alexmorgan/retail-forecasting",
+        demoLink: "https://retail-forecast-demo.example.com",
+        imageUrl: ""
       },
       {
         title: "Market Segmentation Analysis",
         description: "Conducted customer segmentation analysis using clustering algorithms to identify key market segments for targeted marketing strategies.",
+        fullDescription: "Performed in-depth customer segmentation analysis using K-means clustering and other unsupervised learning techniques to identify distinct customer groups based on purchasing behavior, demographics, and engagement patterns. The resulting segmentation was used to develop targeted marketing campaigns that increased conversion rates by 24% and customer retention by 18%.",
         tags: ["R", "K-means", "Data Visualization"],
-        link: "#"
+        link: "#",
+        githubLink: "https://github.com/alexmorgan/market-segmentation",
+        imageUrl: ""
       },
       {
         title: "Financial Performance Dashboard",
         description: "Designed interactive financial KPI dashboard for executive team, providing real-time insights into business performance metrics.",
+        fullDescription: "Created a comprehensive financial performance dashboard using Power BI that integrates data from multiple sources including ERP systems, CRM platforms, and manual inputs. The dashboard provides executives with real-time visibility into key performance indicators, financial health metrics, and trend analysis. The solution includes drill-down capabilities, automated alerts, and customizable views for different stakeholders.",
         tags: ["Power BI", "SQL", "Financial Analysis"],
-        link: "#"
+        link: "#",
+        demoLink: "https://finance-dashboard-demo.example.com",
+        imageUrl: ""
       }
     ],
     viewProjectButtonText: "View Project"
